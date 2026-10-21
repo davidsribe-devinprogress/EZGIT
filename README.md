@@ -319,16 +319,3 @@ git remote set-url origin https://SEU_TOKEN@github.com/seu-usuario/seu-repo.git
 - [ ] Suporte a monorepo / workspaces
 
 ---
-
-## 🤝 Contribuindo
-
-1. Fork o projeto
-2. Crie uma branch: `git checkout -b feat/minha-feature`
-3. Commit suas mudanças: `ezgit` *(use o próprio ezgit!)*
-4. Abra um Pull Request: `ezgit github` → Criar Pull Request
-
----
-
-## 📄 Licença
-
-MIT © 2026 — Feito com ❤️ e muito café ☕
