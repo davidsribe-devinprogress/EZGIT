@@ -1,0 +1,28 @@
+{
+  "name": "ezgit",
+  "version": "2.0.0",
+  "description": "🚀 CLI interativa para automatizar seu fluxo Git & GitHub com estilo",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "ezgit": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "log":    "node index.js log",
+    "branch": "node index.js branch",
+    "undo":   "node index.js undo",
+    "github": "node index.js github"
+  },
+  "keywords": ["git", "cli", "interactive", "conventional-commits", "github", "automation"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@clack/prompts": "^0.9.1",
+    "chalk": "^5.3.0",
+    "execa": "^9.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
