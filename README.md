@@ -1,5 +1,3 @@
-
-
 <div align="center">
 
 ```
@@ -11,133 +9,112 @@
 ╚══════╝╚══════╝ ╚═════╝ ╚═╝   ╚═╝
 ```
 
-# ezgit 🚀
+# ezgit
 
-**CLI interativa para automatizar seu fluxo Git & GitHub com estilo**
-
-[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0.0-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
-[![npm](https://img.shields.io/badge/npm-ezgit-CB3837?style=flat-square&logo=npm)](https://www.npmjs.com)
-[![License](https://img.shields.io/badge/license-MIT-7AA2F7?style=flat-square)](./LICENSE)
-[![ES Modules](https://img.shields.io/badge/ES-Modules-F7768E?style=flat-square)](https://nodejs.org/api/esm.html)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-E0AF68?style=flat-square)](https://conventionalcommits.org)
+**Interface de linha de comando para automação e padronização de fluxos de trabalho no Git e GitHub**
 
 </div>
 
 ---
 
-## ✨ O que é o ezgit?
+## Visão Geral
 
-O `ezgit` é uma ferramenta de linha de comando (CLI) que transforma sua rotina com Git em uma experiência interativa, colorida e muito mais simples. Esqueça memorizar comandos — só navegar pelos menus.
+O **ezgit** é uma ferramenta CLI voltada para otimizar, padronizar e automatizar rotinas do Git e integrações com o GitHub em ambientes de desenvolvimento. Por meio de menus guiados, a ferramenta reduz erros operacionais e garante conformidade com convenções do mercado.
 
-- 📋 **Menus interativos** para todas as ações
-- 🎨 **Saída colorida** e humanamente legível
-- ⚡ **Loaders animados** em cada etapa
-- 🔐 **Integração com a GitHub API** (criar repos, PRs, ver issues)
-- 📝 **Conventional Commits** com tipos e escopos
-- 🕐 **Histórico de mensagens** para reutilizar commits recentes
+### Recursos Principais
 
----
+* **Padronização de Commits:** Implementação nativa da especificação Conventional Commits (com escopo e tipo).
+* **Fluxo Interativo de Push:** Validação de repositório, inspeção de *diff*, suporte a *pull rebase* e confirmação antes do envio.
+* **Integração com GitHub API:** Criação de repositórios, abertura de Pull Requests e consulta de *issues* diretamente pelo terminal.
+* **Gerenciamento de Branches e Histórico:** Operações de criação, remoção, troca e visualização avançada de logs coloridos.
+* **Reversão Segura:** Desfaz alterações via `undo` com suporte aos modos Soft, Mixed e Hard.
+* **Histórico de Mensagens:** Persistência de mensagens recentes para reutilização no terminal.
 
-## 📋 Pré-requisitos
+## Pré-requisitos
 
-| Requisito | Versão mínima | Como verificar |
-|---|---|---|
+| Requisito | Versão Mínima | Comando de Verificação |
+| --- | --- | --- |
 | **Node.js** | `>= 18.0.0` | `node --version` |
 | **npm** | `>= 8.0.0` | `npm --version` |
-| **Git** | qualquer | `git --version` |
+| **Git** | Qualquer versão ativa | `git --version` |
 
-> ⚠️ **Windows**: Certifique-se de que o `git` está no PATH do sistema. Instale pelo [Git for Windows](https://git-scm.com/download/win) e reinicie o terminal após a instalação.
+*Observação para usuários Windows:* Certifique-se de que o executável do Git esteja incluído nas variáveis de ambiente (`PATH`).
 
----
+## Instalação
 
-## 📦 Instalação
+1. Clone o repositório localmente:
 
-### 1. Clone ou baixe o projeto
+   ```bash
+   git clone https://github.com/seu-usuario/ezgit.git
+   cd ezgit
+   ```
 
-```bash
-git clone https://github.com/seu-usuario/ezgit.git
-cd ezgit
-```
+2. Instale as dependências:
 
-### 2. Instale as dependências
+   ```bash
+   npm install
+   ```
 
-```bash
-npm install
-```
+3. Vincule o executável globalmente no ambiente Node.js:
 
-### 3. Vincule globalmente (permite usar `ezgit` em qualquer pasta)
+   ```bash
+   npm link
+   ```
 
-```bash
-npm link
-```
+## Guia de Uso
 
-> Pronto! O comando `ezgit` estará disponível em qualquer diretório do seu sistema.
+### Comando Principal
 
----
-
-## 🚀 Uso
-
-### Comando principal — Commit + Push interativo
+Para iniciar o fluxo guiado de commit e envio de alterações:
 
 ```bash
 ezgit
 ```
 
-Fluxo completo:
-1. ✅ Verifica se é um repositório Git (oferece `git init` se não for)
-2. 🔍 Checa alterações pendentes (`git status`)
-3. 🌿 Seletor de branch (se houver mais de uma)
-4. 📊 Exibe `git diff --stat` (resumo visual das mudanças)
-5. ⬇️ Pergunta se quer fazer `git pull --rebase` antes
-6. 🏷️ Seleção de tipo de commit (Conventional Commits)
-7. 🔖 Campo de escopo opcional (ex: `feat(auth): ...`)
-8. ✍️ Mensagem do commit com histórico de sugestões
-9. 📋 Resumo final com confirmação
-10. 🚀 Executa: `git add .` → `git commit` → `git push`
+**Etapas do processo:**
 
----
+1. Validação de repositório Git local (oferece inicialização se necessário).
+2. Verificação do estado dos arquivos (`git status`).
+3. Seleção de branch ativa.
+4. Exibição do resumo de alterações (`git diff --stat`).
+5. Opção de sincronização prévia (`git pull --rebase`).
+6. Definir tipo e escopo da alteração conforme a convenção.
+7. Entrada de mensagem com opção de reaproveitamento do histórico.
+8. Confirmação e execução sequencial (`git add`, `git commit`, `git push`).
 
-### `ezgit log` — Histórico de commits colorido
+### Comandos Auxiliares
+
+#### Visualização de Logs
+
+Exibe o histórico recente categorizado por tipo de commit, autor, data e referências.
 
 ```bash
 ezgit log
 ```
 
-Exibe os últimos commits com cores por tipo, autor, data e refs (HEAD, origin, tags). Escolha entre 10, 20, 50 ou 100 commits.
+#### Gerenciamento de Branches
 
----
-
-### `ezgit branch` — Gerenciar branches
+Acessa o menu de gerenciamento (listar, criar, alternar, renomear e excluir).
 
 ```bash
 ezgit branch
 ```
 
-| Opção | Descrição |
-|---|---|
-| **Listar** | Mostra todas as branches locais com indicador da atual |
-| **Criar** | Cria nova branch com validação de nome + opção de já trocar |
-| **Trocar** | Menu de seleção para mudar de branch |
-| **Deletar** | Remove branch com confirmação obrigatória |
-| **Renomear** | Renomeia a branch atual |
+#### Reversão de Commits
 
----
-
-### `ezgit undo` — Desfazer o último commit
+Desfaz o último commit executado.
 
 ```bash
 ezgit undo
 ```
 
-| Modo | Comportamento |
-|---|---|
-| **Soft** | Desfaz o commit, mantém arquivos **no stage** (mais seguro) |
-| **Mixed** | Desfaz o commit, arquivos ficam fora do stage (padrão Git) |
-| **Hard** | ⚠️ Desfaz o commit **e apaga todas as mudanças** (pede confirmação dupla) |
+* **Soft:** Mantém as alterações no diretório de *stage*.
+* **Mixed:** Mantém as alterações no diretório de trabalho (*working directory*).
+* **Hard:** Remove permanentemente as alterações (requer confirmação adicional).
 
----
+#### Integração com GitHub
 
-### `ezgit github` — Integração com GitHub API
+Acessa as funcionalidades conectadas à API do GitHub.
 
 ```bash
 ezgit github
@@ -145,188 +122,86 @@ ezgit github
 ezgit gh
 ```
 
-| Funcionalidade | Descrição |
-|---|---|
-| 🔑 **Configurar Token** | Salva seu Personal Access Token (validado na hora) |
-| 👤 **Meu Perfil** | Exibe dados da sua conta GitHub |
-| 📁 **Meus Repositórios** | Lista seus últimos 20 repos com linguagem e estrelas |
-| ➕ **Criar Repositório** | Cria repo no GitHub e configura como `origin` |
-| 🔀 **Criar Pull Request** | Abre PR com título, descrição, branch base e suporte a draft |
-| 🐛 **Listar Issues** | Exibe issues abertas do repositório atual |
+**Opções disponíveis:**
 
-#### Como configurar o token GitHub
+* Autenticação via Personal Access Token (armazenado em `~/.ezgitrc`).
+* Consulta de perfil e repositórios.
+* Criação de novos repositórios remotos com associação automática da origin.
+* Abertura de Pull Requests (incluindo suporte a rascunhos / *drafts*).
+* Consulta de *issues* em aberto.
 
-1. Acesse: [github.com/settings/tokens/new](https://github.com/settings/tokens/new)
-2. Selecione os escopos: `repo`, `workflow`, `read:user`
-3. Gere e copie o token (começa com `ghp_` ou `github_pat_`)
-4. Execute `ezgit github` → **Configurar Token** e cole o token
+## Padrão de Commits (Conventional Commits)
 
-> O token é salvo em `~/.ezgitrc` (somente no seu computador, nunca compartilhado).
+O projeto adota a convenção [Conventional Commits](https://www.conventionalcommits.org/):
 
----
+| Tipo | Finalidade |
+| --- | --- |
+| `feat` | Adição de nova funcionalidade |
+| `fix` | Correção de problemas/bugs |
+| `docs` | Alterações em documentação |
+| `refactor` | Mudança de código sem alteração de comportamento |
+| `style` | Formatação de código e espaçamentos |
+| `test` | Criação ou ajuste de suítes de teste |
+| `chore` | Tarefas de manutenção, dependências e configurações |
+| `perf` | Melhorias de desempenho |
+| `ci` | Alterações em scripts e arquivos de integração contínua |
 
-### `ezgit --help` — Ajuda
+**Exemplo de estrutura:**
 
-```bash
-ezgit --help
-# ou
-ezgit help
-ezgit -h
+```text
+feat(auth): adiciona suporte a autenticação OAuth2
+fix(api): corrige tratamento de exceções na rota de login
 ```
 
----
+## Estrutura do Diretório
 
-## 🏷️ Tipos de Commit (Conventional Commits)
-
-| Tipo | Emoji | Quando usar |
-|---|---|---|
-| `feat` | ✨ | Nova funcionalidade |
-| `fix` | 🐛 | Correção de bug |
-| `docs` | 📝 | Mudanças na documentação |
-| `refactor` | ♻️ | Refatoração sem mudar comportamento |
-| `style` | 💅 | Formatação, espaços, ponto e vírgula |
-| `test` | 🧪 | Adicionar ou corrigir testes |
-| `chore` | 🔧 | Manutenção, build, dependências |
-| `perf` | ⚡ | Melhoria de performance |
-| `ci` | 🤖 | Mudanças em CI/CD |
-
-**Exemplo com escopo:**
-```
-feat(auth): adiciona login com Google
-fix(api): corrige tratamento de erro 401
-docs(readme): atualiza instruções de instalação
-```
-
----
-
-## 📁 Estrutura do Projeto
-
-```
+```text
 ezgit/
-├── index.js                  ← Ponto de entrada + roteador de comandos
-├── package.json
-├── README.md
+├── index.js                  # Ponto de entrada e roteamento de comandos
+├── package.json              # Mapeamento de dependências e scripts
+├── README.md                 # Documentação técnica do projeto
 └── src/
-    ├── commands/
-    │   ├── push.js           ← Fluxo de commit + push
-    │   ├── log.js            ← Histórico de commits
-    │   ├── branch.js         ← Gerenciamento de branches
-    │   ├── undo.js           ← Desfazer commits
-    │   └── github.js         ← Integração com GitHub API
-    └── utils/
-        ├── style.js          ← Cores, ícones, banner, tipos de commit
-        ├── git.js            ← Funções Git utilitárias
-        └── config.js         ← Configuração persistente (~/.ezgitrc)
+    ├── commands/             # Implementação das rotas da CLI
+    │   ├── push.js           # Fluxo de commit e push
+    │   ├── log.js            # Visualizador de log
+    │   ├── branch.js         # Operações de branch
+    │   ├── undo.js           # Reversão de commits
+    │   └── github.js         # Cliente para a API do GitHub
+    └── utils/                # Módulos utilitários
+        ├── style.js          # Estilização visual no terminal
+        ├── git.js            # Wrapper de comandos de sistema do Git
+        └── config.js         # Gerenciamento do arquivo de configuração (~/.ezgitrc)
 ```
 
----
+## Resolução de Problemas
 
-## ⚙️ Configuração Persistente
+### Git não reconhecido no terminal Windows
 
-O `ezgit` salva preferências em `~/.ezgitrc` (arquivo JSON no seu diretório home):
+Verifique se a instalação do Git adicionou os executáveis ao `PATH` do sistema. Reinstale utilizando o instalador oficial e marque a opção para disponibilizar o Git via linha de comando.
 
-```json
-{
-  "history": [
-    "adiciona autenticação com Google",
-    "corrige erro de validação no formulário"
-  ],
-  "githubToken": "ghp_..."
-}
-```
+### Rejeição no envio do repositório remoto (`push`)
 
-| Campo | Descrição |
-|---|---|
-| `history` | Últimas 20 mensagens de commit para sugestão |
-| `githubToken` | Token de acesso à GitHub API |
-
----
-
-## 🛠️ Dependências
-
-| Pacote | Versão | Uso |
-|---|---|---|
-| [`@clack/prompts`](https://github.com/natemoo-re/clack) | `^0.9.1` | Prompts interativos, spinners, menus |
-| [`chalk`](https://github.com/chalk/chalk) | `^5.3.0` | Colorização do terminal |
-| [`execa`](https://github.com/sindresorhus/execa) | `^9.3.0` | Execução de comandos Git |
-
----
-
-## 🚧 Solução de Problemas
-
-### ❌ `git não é reconhecido como um comando` (Windows)
-
-O Git não está no PATH do sistema.
-
-**Solução:**
-1. Instale o [Git for Windows](https://git-scm.com/download/win)
-2. Durante a instalação, selecione **"Git from the command line and also from 3rd-party software"**
-3. Reinicie o terminal (ou o computador)
-4. Verifique com: `git --version`
-
----
-
-### ❌ Push rejeitado
-
-```
-✘  Push rejeitado! Existem commits remotos não baixados.
-```
-
-**Solução:**
-```bash
-git pull origin main --rebase
-# depois tente novamente:
-ezgit
-```
-
----
-
-### ❌ Sem remote configurado
-
-```
-✘  Nenhum remote 'origin' configurado.
-```
-
-**Solução:**
-```bash
-git remote add origin https://github.com/seu-usuario/seu-repo.git
-# ou use:
-ezgit github  # → Criar Repositório (configura origin automaticamente)
-```
-
----
-
-### ❌ Falha de autenticação no push
-
-Configure autenticação via HTTPS com token ou use SSH:
+Ocorre quando há *commits* no servidor remoto não presentes localmente. Execute a sincronização manual:
 
 ```bash
-# Via SSH (recomendado):
-git remote set-url origin git@github.com:seu-usuario/seu-repo.git
-
-# Via HTTPS com token:
-git remote set-url origin https://SEU_TOKEN@github.com/seu-usuario/seu-repo.git
+git pull origin <nome-da-branch> --rebase
 ```
 
----
+### Ausência de repositório remoto (`origin`)
 
-## 🗺️ Roadmap
+Adicione o destino manualmente ou utilize a opção de criação de repositórios da CLI:
 
-- [x] Commit + push interativo com Conventional Commits
-- [x] `git diff --stat` antes do commit
-- [x] Seletor de branch
-- [x] `git pull --rebase` antes do push
-- [x] Histórico de mensagens de commit
-- [x] Escopo opcional no commit
-- [x] `ezgit log` — histórico colorido
-- [x] `ezgit branch` — gerenciar branches
-- [x] `ezgit undo` — desfazer commits
-- [x] `ezgit github` — GitHub API (perfil, repos, PR, issues)
-- [ ] `ezgit stash` — gerenciar stashes
-- [ ] Suporte a tags de versão (`git tag`)
-- [ ] Detecção de `.env` fora do `.gitignore`
-- [ ] Modo `--dry-run`
-- [ ] Temas personalizáveis via `.ezgitrc`
-- [ ] Suporte a monorepo / workspaces
+```bash
+git remote add origin https://github.com/usuario/repositorio.git
+```
 
----
+## Planejamento de Desenvolvimento (Roadmap)
+
+- [x] Interface de commit e push com validações.
+- [x] Suporte a Conventional Commits.
+- [x] Integração completa com API do GitHub.
+- [x] Sistema de reversão de commits com segurança.
+- [ ] Suporte a gerenciamento de `git stash`.
+- [ ] Automação do versionamento através de `git tag`.
+- [ ] Validação de arquivos sensíveis no `.gitignore` antes do commit.
+- [ ] Flag de execução simular (`--dry-run`).
